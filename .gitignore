@@ -1,0 +1,7 @@
+/vendor/
+/.env
+/composer.lock
+/nbproject/private/
+/.phpunit.result.cache
+/.phpunit.cache/
+*.cache

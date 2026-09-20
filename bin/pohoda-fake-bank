@@ -1,0 +1,61 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+/**
+ * Create a fake Pohoda bank receipt (BV) via mServer.
+ *
+ * Usage:
+ *   pohoda-fake-bank [--amount=123.45] [--account=CSOB] [--sym-var=…] [--text=…] [--json]
+ */
+
+\define('APP_NAME', 'PohodaFakeBank');
+
+require_once __DIR__.'/../vendor/autoload.php';
+
+\Ease\Shared::init(
+    ['POHODA_URL', 'POHODA_USERNAME', 'POHODA_PASSWORD'],
+    __DIR__.'/../.env',
+);
+
+$opts = getopt('', ['amount::', 'account::', 'sym-var::', 'text::', 'bank-type::', 'json', 'help']);
+
+if (isset($opts['help'])) {
+    fwrite(STDERR, "Usage: pohoda-fake-bank [--amount=] [--account=CSOB] [--sym-var=] [--text=] [--bank-type=receipt|expense] [--json]\n");
+    exit(0);
+}
+
+$overrides = [];
+
+if (isset($opts['amount'])) {
+    $overrides['amount'] = (string) $opts['amount'];
+}
+
+if (isset($opts['account'])) {
+    $overrides['account'] = (string) $opts['account'];
+}
+
+if (isset($opts['sym-var'])) {
+    $overrides['symVar'] = (string) $opts['sym-var'];
+}
+
+if (isset($opts['text'])) {
+    $overrides['text'] = (string) $opts['text'];
+}
+
+if (isset($opts['bank-type'])) {
+    $overrides['bankType'] = (string) $opts['bank-type'];
+}
+
+$result = (new \Pohoda\Tools\FakeBankPayment())->create($overrides);
+
+if (isset($opts['json'])) {
+    echo json_encode($result, \JSON_PRETTY_PRINT | \JSON_UNESCAPED_UNICODE).\PHP_EOL;
+} elseif ($result['ok']) {
+    echo sprintf("OK id=%s amount=%s symVar=%s\n", $result['id'] ?? '?', $result['record']['homeCurrency']['priceNone'], $result['record']['symVar']);
+} else {
+    echo "FAILED\n";
+}
+
+exit($result['ok'] ? 0 : 1);

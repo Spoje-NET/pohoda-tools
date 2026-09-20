@@ -1,0 +1,40 @@
+{
+    "name": "spojenet/pohoda-tools",
+    "description": "CLI tools for Stormware Pohoda (mServer) — testing helpers analogous to AbraFlexi-Tools",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vítězslav Dvořák",
+            "email": "info@vitexsoftware.cz"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.2",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "vitexsoftware/ease-core": "^1.50",
+        "vitexsoftware/pohoda-connector": "^0.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10|^11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pohoda\\Tools\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pohoda\\Tools\\Tests\\": "tests/"
+        }
+    },
+    "bin": [
+        "bin/pohoda-fake-bank"
+    ],
+    "config": {
+        "sort-packages": true
+    }
+}
