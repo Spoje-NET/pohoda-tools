@@ -5,3 +5,8 @@
 /.phpunit.result.cache
 /.phpunit.cache/
 *.cache
+/debian/files
+/debian/debhelper-build-stamp
+/debian/*.substvars
+/debian/.debhelper/
+/debian/pohoda-tools/

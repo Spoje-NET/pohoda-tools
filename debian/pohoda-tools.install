@@ -1,0 +1,2 @@
+bin/pohoda-fake-bank usr/bin/
+src/*.php usr/lib/pohoda-tools/

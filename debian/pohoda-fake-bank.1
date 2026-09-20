@@ -1,0 +1,55 @@
+.TH POHODA-FAKE-BANK 1 "" "0.1.0" "User Commands"
+.SH NAME
+pohoda\-fake\-bank \- create a fake Pohoda bank receipt via mServer
+.SH SYNOPSIS
+.B pohoda-fake-bank
+[\fB\-\-amount=\fR\fIAMOUNT\fR]
+[\fB\-\-account=\fR\fIIDS\fR]
+[\fB\-\-sym-var=\fR\fIVARIABLE\fR]
+[\fB\-\-text=\fR\fITEXT\fR]
+[\fB\-\-bank-type=\fR\fIreceipt|expense\fR]
+[\fB\-\-json\fR]
+[\fB\-\-help\fR]
+.SH DESCRIPTION
+Inserts one synthetic bank document into Stormware Pohoda through mServer.
+Intended for exercising changes-API pollers and related integrations.
+.SH OPTIONS
+.TP
+.B \-\-amount=\fIAMOUNT\fR
+Receipt amount (default from environment or a random value).
+.TP
+.B \-\-account=\fIIDS\fR
+Pohoda bank account ids (default from \fBPOHODA_BANK_ACCOUNT\fR, often KB).
+.TP
+.B \-\-sym-var=\fIVARIABLE\fR
+Variable symbol (default: current unix timestamp).
+.TP
+.B \-\-text=\fITEXT\fR
+Payment text / description.
+.TP
+.B \-\-bank-type=\fIreceipt|expense\fR
+Bank document type (default: receipt).
+.TP
+.B \-\-json
+Print the result as JSON.
+.TP
+.B \-\-help
+Show usage and exit.
+.SH ENVIRONMENT
+.TP
+.B POHODA_URL
+mServer base URL.
+.TP
+.B POHODA_ICO
+Accounting unit IČO.
+.TP
+.B POHODA_USERNAME
+mServer username.
+.TP
+.B POHODA_PASSWORD
+mServer password.
+.TP
+.B POHODA_BANK_ACCOUNT
+Default bank account ids.
+.SH AUTHOR
+Vítězslav Dvořák <info@vitexsoftware.cz>

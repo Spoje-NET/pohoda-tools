@@ -1,0 +1,18 @@
+Source: pohoda-tools
+Section: utils
+Priority: optional
+Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
+Build-Depends: debhelper-compat (= 13), jq, appstream
+Standards-Version: 4.7.0
+Homepage: https://github.com/Spoje-NET/pohoda-tools
+Vcs-Git: https://github.com/Spoje-NET/pohoda-tools.git
+Vcs-Browser: https://github.com/Spoje-NET/pohoda-tools
+Rules-Requires-Root: no
+
+Package: pohoda-tools
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}, php-cli, php-vitexsoftware-ease-core, php-vitexsoftware-pohoda-connector, composer
+Description: CLI tools for Stormware Pohoda (mServer)
+ Helpers for exercising Pohoda mServer integrations — for example creating
+ fake bank receipts so changes-API pollers can pick them up.

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="console-application">
+  <id>io.github.spoje_net.pohoda_tools</id>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <name>Pohoda Tools</name>
+  <summary>CLI helpers for Stormware Pohoda mServer</summary>
+  <description>
+    <p>
+      Command-line helpers for Stormware Pohoda (mServer), useful when testing
+      integrations such as changes-API pollers.
+    </p>
+    <p>
+      Includes <code>pohoda-fake-bank</code>, which inserts a synthetic bank
+      receipt so pollers can observe a new document via lastChanges or MSSQL
+      DatSave.
+    </p>
+  </description>
+  <categories>
+    <category>Office</category>
+    <category>Finance</category>
+    <category>ConsoleOnly</category>
+  </categories>
+  <url type="homepage">https://github.com/Spoje-NET/pohoda-tools</url>
+  <url type="bugtracker">https://github.com/Spoje-NET/pohoda-tools/issues</url>
+  <developer id="io.github.spoje_net">
+    <name>Spoje.Net</name>
+  </developer>
+  <icon type="stock">utilities-terminal</icon>
+  <provides>
+    <binary>pohoda-fake-bank</binary>
+  </provides>
+  <content_rating type="oars-1.1"/>
+</component>
